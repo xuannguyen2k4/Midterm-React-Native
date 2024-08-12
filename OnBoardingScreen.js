@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, Text, Image, Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 
 const OnBoardingScreen = ({ navigation }) => {
   return (
-    <ImageBackground source={require('./assets/Group.png')} style={styles.container}>
+    <ImageBackground source={require('./assets/8140.png')} style={styles.container}>
       <View style={styles.overlay}>
-        <Image source={require('./assets/8140.png')} style={styles.image} />
-        <Text style={styles.title}>Get your groceries in as fast as one hour</Text>
-        <Text style={styles.description}>Welcome to our store! We offer a wide variety of groceries that you can order and receive delivery within an hour.</Text>
-        <Button title="Get Started" onPress={() => navigation.navigate('SignIn')} />
+        <Image source={require('./assets/Group.png')} style={styles.icon} resizeMode="contain"/>
+        <Text style={styles.title}>Welcome{'\n'}to our store</Text>
+        <Text style={styles.description}>Get your groceries in as fast as one hour</Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SignIn')}>
+          <Text style={styles.buttonText}>Get Started</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -26,25 +28,38 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // This adds a dark overlay to make the text more readable
     padding: 20,
   },
-  image: {
-    width: 100,
-    height: 100,
+  icon: {
+    width: 50,  
+    height: 50, 
+    marginTop: 210,
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 48,
     fontWeight: 'bold',
-    color: 'white', // Ensure text is readable
+    color: 'white', 
     marginBottom: 10,
     textAlign: 'center',
   },
   description: {
     fontSize: 16,
-    color: 'white', // Ensure text is readable
+    color: '#FCFCFC', 
     marginBottom: 20,
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#53B175',
+    paddingVertical: 15,
+    paddingHorizontal: 100,
+    borderRadius: 20, // Để bo tròn nút
+    marginTop: 20,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
     textAlign: 'center',
   },
 });
